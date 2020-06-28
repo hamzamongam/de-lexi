@@ -7,11 +7,37 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
-  <div class="comingsoon-page">
+  <div id="particles-js" class="comingsoon-page">
         <div class="main-content">
-            <h2>De-Lexi.com</h2>
-            <h5>Coming Soon</h5>
+             <div class="logo-blk">
+              <img class="" src="./assets/images/logo.png" alt="">
+             </div>
+            <h5>WE ARE <span>ALMOST</span> THERE</h5>
+            <h6>Stay tuned for something amazing!!</h6>
         </div>
   </div>
+  <script src="./assets/js/particles.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+
+  <script>
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  </script>
+  
 </body>
 </html>
